@@ -270,14 +270,12 @@
         }
       }).then(response => {
         if (response.ok) {
-          status.classlist.add("success");
-          status.innerHTML = "Thanks for your submission!";
+          status.innerHTML = "Thanks for your message, I will get back to you shortly!";
           form.reset()
         } else {
           response.json().then(data => {
             if (Object.hasOwn(data, 'errors')) {
-            	status.classlist.add("error");
-              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+            	status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
             } else {
               status.innerHTML = "Oops! There was a problem submitting your form"
             }
